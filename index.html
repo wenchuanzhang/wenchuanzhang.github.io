@@ -143,22 +143,10 @@
             height: 176px;
             margin-bottom: 23px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #43546b 0%,
-                    #68778a 100%
-                );
-
-            color: white;
-            font-size: 53px;
-            font-weight: 650;
-            letter-spacing: 2px;
-
+            display: block;
+            object-fit: cover;
+            object-position: center center;
+            background: #ffffff;
             box-shadow:
                 0 0 0 1px rgba(0, 0, 0, 0.08),
                 0 4px 14px rgba(0, 0, 0, 0.08);
@@ -230,7 +218,6 @@
             margin: 0 0 20px;
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border);
-
             color: #222222;
             font-size: 27px;
             font-weight: 650;
@@ -258,11 +245,9 @@
             display: inline-block;
             margin: 3px 5px 3px 0;
             padding: 3px 9px;
-
             background: var(--light-bg);
             border: 1px solid #e1e4e8;
             border-radius: 4px;
-
             color: #555555;
             font-size: 13px;
         }
@@ -342,18 +327,15 @@
             margin-right: 5px;
             padding: 1px 7px;
             vertical-align: 1px;
-
             background: var(--tag-bg);
             border-radius: 3px;
             color: #ffffff;
-
             font-family:
                 SFMono-Regular,
                 Consolas,
                 "Liberation Mono",
                 Menlo,
                 monospace;
-
             font-size: 12px;
             font-weight: 600;
             white-space: nowrap;
@@ -373,6 +355,14 @@
             font-weight: 700;
         }
 
+        a.me {
+            color: #111111;
+        }
+
+        a.me:hover {
+            color: var(--link);
+        }
+
         .paper-venue {
             color: #555555;
         }
@@ -385,6 +375,19 @@
         .paper-links a {
             font-size: 13px;
             font-weight: 550;
+        }
+
+        .status {
+            display: inline-block;
+            margin-left: 5px;
+            padding: 1px 7px;
+            border: 1px solid #d0d7de;
+            border-radius: 3px;
+            background: #f6f8fa;
+            color: #57606a;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         /* =========================================================
@@ -429,7 +432,6 @@
             margin-top: 20px;
             padding-top: 22px;
             border-top: 1px solid var(--border);
-
             color: #888888;
             font-size: 13px;
             text-align: center;
@@ -452,7 +454,6 @@
                 grid-template-columns: 145px 1fr;
                 column-gap: 25px;
                 align-items: center;
-
                 margin-bottom: 36px;
                 padding-bottom: 34px;
                 border-bottom: 1px solid var(--border);
@@ -525,6 +526,7 @@
         "@type": "Person",
         "name": "Wenchuan Zhang",
         "url": "https://wenchuanzhang.github.io/",
+        "image": "https://wenchuanzhang.github.io/profile.jpg",
         "email": "mailto:t330201704@mail.uic.edu.cn",
         "jobTitle": "Ph.D. Student",
         "affiliation": [
@@ -546,17 +548,10 @@
     </script>
 </head>
 
-
 <body id="home">
 
-    <!-- =========================================================
-         Navigation
-         ========================================================= -->
-
     <header class="topbar">
-
         <div class="topbar-inner">
-
             <a class="site-name" href="#home">
                 Wenchuan Zhang
             </a>
@@ -568,29 +563,16 @@
                 <a href="#publications">Publications</a>
                 <a href="#education">Education</a>
             </nav>
-
         </div>
-
     </header>
-
-
-    <!-- =========================================================
-         Main page
-         ========================================================= -->
 
     <main class="page">
 
-
-        <!-- =====================================================
-             Sidebar
-             ===================================================== -->
-
         <aside class="sidebar">
 
-            <div class="avatar"
-                 aria-label="Wenchuan Zhang">
-                WZ
-            </div>
+            <img class="avatar"
+                 src="profile.jpg"
+                 alt="Portrait of Wenchuan Zhang">
 
             <div class="profile-details">
 
@@ -655,17 +637,7 @@
 
         </aside>
 
-
-        <!-- =====================================================
-             Content
-             ===================================================== -->
-
         <div class="content">
-
-
-            <!-- =================================================
-                 About Me
-                 ================================================= -->
 
             <section id="about" class="section">
 
@@ -706,11 +678,6 @@
 
             </section>
 
-
-            <!-- =================================================
-                 News
-                 ================================================= -->
-
             <section id="news" class="section">
 
                 <h2 class="section-title">
@@ -743,6 +710,28 @@
                         </em>
                         appears in
                         <strong>Neural Networks</strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.07:</span>
+                        🎉 Our paper
+                        <em>
+                            THG-Track: Temporal Heterogeneous Graph Structure
+                            Learning for Satellite-Video Multi-Object Tracking
+                        </em>
+                        has been accepted to the
+                        <strong>ACM Multimedia 2026 Main Track</strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.07:</span>
+                        🎉 Our paper
+                        <em>
+                            Guided Sparse Mixture-of-Experts for Multi-View
+                            Clustering in Hyperspherical Prototype Space
+                        </em>
+                        has been accepted to the
+                        <strong>ACM Multimedia 2026 Main Track</strong>.
                     </li>
 
                     <li>
@@ -801,11 +790,6 @@
 
             </section>
 
-
-            <!-- =================================================
-                 Publications
-                 ================================================= -->
-
             <section id="publications" class="section">
 
                 <h2 class="section-title">
@@ -813,8 +797,9 @@
                 </h2>
 
                 <p class="publication-summary">
-                    13 publications are listed below in reverse chronological
-                    order. Please also visit
+                    15 publications are listed below in reverse chronological
+                    order, including two accepted ACM Multimedia 2026 papers
+                    whose proceedings publication is pending. Please also visit
                     <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=8A8rOWQAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
                        target="_blank"
                        rel="noopener noreferrer">
@@ -828,19 +813,11 @@
                     </a>.
                 </p>
 
-
-                <!-- =================================================
-                     2026
-                     ================================================= -->
-
                 <h3 class="year-title">
                     2026
                 </h3>
 
                 <ul class="publication-list">
-
-
-                    <!-- 1 -->
 
                     <li class="publication-item">
 
@@ -879,9 +856,6 @@
 
                     </li>
 
-
-                    <!-- 2 -->
-
                     <li class="publication-item">
 
                         <span class="venue">Neural Networks</span>
@@ -917,8 +891,71 @@
 
                     </li>
 
+                    <li class="publication-item">
 
-                    <!-- 3 -->
+                        <span class="venue">ACM MM 2026</span>
+
+                        <span class="paper-title">
+                            THG-Track: Temporal Heterogeneous Graph Structure
+                            Learning for Satellite-Video Multi-Object Tracking.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                ACM Multimedia 2026 Main Track
+                            </em>,
+                            2026.
+                        </span>
+
+                        <span class="status">
+                            Accepted · Proceedings publication pending
+                        </span>
+
+                    </li>
+
+                    <li class="publication-item">
+
+                        <span class="venue">ACM MM 2026</span>
+
+                        <span class="paper-title">
+                            Guided Sparse Mixture-of-Experts for Multi-View
+                            Clustering in Hyperspherical Prototype Space.
+                        </span>
+
+                        <span class="paper-authors">
+                            <a href="https://openreview.net/profile?id=~Zhiwen_Luo1"
+                               target="_blank"
+                               rel="noopener noreferrer">Zhiwen Luo</a>,
+                            <a href="https://openreview.net/profile?id=~Manar_Amayri1"
+                               target="_blank"
+                               rel="noopener noreferrer">Manar Amayri</a>,
+                            <a href="https://openreview.net/profile?id=~Nizar_Bouguila2"
+                               target="_blank"
+                               rel="noopener noreferrer">Nizar Bouguila</a>,
+                            <a href="https://openreview.net/profile?id=~Xue_Han6"
+                               target="_blank"
+                               rel="noopener noreferrer">Xue Han</a>,
+                            <a class="me"
+                               href="https://openreview.net/profile?id=~Wenchuan_Zhang1"
+                               target="_blank"
+                               rel="noopener noreferrer">Wenchuan Zhang</a>,
+                            <a href="https://openreview.net/profile?id=~Wentao_Fan3"
+                               target="_blank"
+                               rel="noopener noreferrer">Wentao Fan</a>.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                ACM Multimedia 2026 Main Track
+                            </em>,
+                            2026.
+                        </span>
+
+                        <span class="status">
+                            Accepted · Proceedings publication pending
+                        </span>
+
+                    </li>
 
                     <li class="publication-item">
 
@@ -955,9 +992,6 @@
                         </span>
 
                     </li>
-
-
-                    <!-- 4 -->
 
                     <li class="publication-item">
 
@@ -1001,9 +1035,6 @@
 
                     </li>
 
-
-                    <!-- 5 -->
-
                     <li class="publication-item">
 
                         <span class="venue">ESWA</span>
@@ -1039,9 +1070,6 @@
                         </span>
 
                     </li>
-
-
-                    <!-- 6 -->
 
                     <li class="publication-item">
 
@@ -1084,19 +1112,11 @@
 
                 </ul>
 
-
-                <!-- =================================================
-                     2025
-                     ================================================= -->
-
                 <h3 class="year-title">
                     2025
                 </h3>
 
                 <ul class="publication-list">
-
-
-                    <!-- 7 -->
 
                     <li class="publication-item">
 
@@ -1136,9 +1156,6 @@
                         </span>
 
                     </li>
-
-
-                    <!-- 8 -->
 
                     <li class="publication-item">
 
@@ -1184,9 +1201,6 @@
 
                     </li>
 
-
-                    <!-- 9 -->
-
                     <li class="publication-item">
 
                         <span class="venue">ICAIE 2024</span>
@@ -1228,19 +1242,11 @@
 
                 </ul>
 
-
-                <!-- =================================================
-                     2023
-                     ================================================= -->
-
                 <h3 class="year-title">
                     2023
                 </h3>
 
                 <ul class="publication-list">
-
-
-                    <!-- 10 -->
 
                     <li class="publication-item">
 
@@ -1282,19 +1288,11 @@
 
                 </ul>
 
-
-                <!-- =================================================
-                     2021
-                     ================================================= -->
-
                 <h3 class="year-title">
                     2021
                 </h3>
 
                 <ul class="publication-list">
-
-
-                    <!-- 11 -->
 
                     <li class="publication-item">
 
@@ -1336,9 +1334,6 @@
 
                     </li>
 
-
-                    <!-- 12 -->
-
                     <li class="publication-item">
 
                         <span class="venue">ICCSS 2021</span>
@@ -1379,65 +1374,7 @@
 
                 </ul>
 
-
-                <!-- =================================================
-                     2009
-                     ================================================= -->
-
-                <h3 class="year-title">
-                    2009
-                </h3>
-
-                <ul class="publication-list">
-
-
-                    <!-- 13 -->
-
-                    <li class="publication-item">
-
-                        <span class="venue">IITA 2009</span>
-
-                        <span class="paper-title">
-                            Template Matching Based on an Improved
-                            PSO Algorithm.
-                        </span>
-
-                        <span class="paper-authors">
-                            Xiaoxiang Liu,
-                            <span class="me">Wenchuan Zhang</span>,
-                            Weigang Jiang,
-                            Jianwen Xie.
-                        </span>
-
-                        <span class="paper-venue">
-                            <em>
-                                2009 Third International Symposium on
-                                Intelligent Information Technology Application
-                            </em>,
-                            pp. 292–296,
-                            2009.
-                        </span>
-
-                        <span class="paper-links">
-                            [
-                            <a href="https://doi.org/10.1109/IITAW.2009.74"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                DOI
-                            </a>
-                            ]
-                        </span>
-
-                    </li>
-
-                </ul>
-
             </section>
-
-
-            <!-- =================================================
-                 Education
-                 ================================================= -->
 
             <section id="education" class="section">
 
@@ -1470,7 +1407,6 @@
 
                     </li>
 
-
                     <li class="education-item">
 
                         <span class="education-date">
@@ -1489,13 +1425,7 @@
 
                     </li>
 
-
                     <li class="education-item">
-
-                        <span class="education-date">
-                            2010
-                        </span>
-                        <br>
 
                         <span class="education-degree">
                             B.E. in Electrical Engineering and Automation
@@ -1511,23 +1441,15 @@
 
             </section>
 
-
-            <!-- =================================================
-                 Footer
-                 ================================================= -->
-
             <footer class="footer">
-
                 © <span id="current-year">2026</span>
                 Wenchuan Zhang.
                 Hosted on GitHub Pages.
-
             </footer>
 
         </div>
 
     </main>
-
 
     <script>
         document.getElementById("current-year").textContent =
