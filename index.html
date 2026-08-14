@@ -1,12 +1,1539 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Wenchuan Zhang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wenchuan Zhang - Homepage</title>
+
+    <meta name="description"
+          content="Wenchuan Zhang's academic homepage. Research interests include machine learning, deep learning, graph neural networks, graph representation learning, geometric deep learning, and generative modeling.">
+
+    <meta name="author" content="Wenchuan Zhang">
+
+    <link rel="canonical" href="https://wenchuanzhang.github.io/">
+
+    <style>
+        :root {
+            --nav-bg: #24292f;
+            --nav-text: #ffffff;
+            --text: #333333;
+            --muted: #666666;
+            --border: #e1e4e8;
+            --link: #0366d6;
+            --link-hover: #0056b3;
+            --tag-bg: #555555;
+            --light-bg: #f5f6f7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: var(--text);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        /* =========================================================
+           Navigation
+           ========================================================= */
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: var(--nav-bg);
+            color: var(--nav-text);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+        }
+
+        .topbar-inner {
+            max-width: 1180px;
+            min-height: 58px;
+            margin: 0 auto;
+            padding: 0 26px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-name {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 650;
+            white-space: nowrap;
+        }
+
+        .site-name:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           Layout
+           ========================================================= */
+
+        .page {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 52px 28px 72px;
+            display: grid;
+            grid-template-columns: 250px minmax(0, 820px);
+            column-gap: 66px;
+            justify-content: center;
+        }
+
+        /* =========================================================
+           Sidebar
+           ========================================================= */
+
+        .sidebar {
+            position: sticky;
+            top: 92px;
+            align-self: start;
+        }
+
+        .avatar {
+            width: 176px;
+            height: 176px;
+            margin-bottom: 23px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #43546b 0%,
+                    #68778a 100%
+                );
+
+            color: white;
+            font-size: 53px;
+            font-weight: 650;
+            letter-spacing: 2px;
+
+            box-shadow:
+                0 0 0 1px rgba(0, 0, 0, 0.08),
+                0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-name {
+            margin: 0 0 6px;
+            font-size: 25px;
+            line-height: 1.3;
+            font-weight: 650;
+            color: #222222;
+        }
+
+        .profile-role {
+            margin: 0 0 6px;
+            color: #4d4d4d;
+            font-size: 15px;
+        }
+
+        .profile-affiliation {
+            margin: 0 0 16px;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .profile-list {
+            list-style: none;
+            padding: 0;
+            margin: 17px 0 0;
+        }
+
+        .profile-list li {
+            margin: 9px 0;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        .profile-list a {
+            color: #444444;
+        }
+
+        .profile-list a:hover {
+            color: var(--link);
+        }
+
+        .profile-icon {
+            display: inline-block;
+            width: 24px;
+            margin-right: 4px;
+            text-align: center;
+            color: #777777;
+        }
+
+        /* =========================================================
+           Main content
+           ========================================================= */
+
+        .content {
+            min-width: 0;
+        }
+
+        .section {
+            margin-bottom: 48px;
+            scroll-margin-top: 84px;
+        }
+
+        .section-title {
+            margin: 0 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+
+            color: #222222;
+            font-size: 27px;
+            font-weight: 650;
+            line-height: 1.3;
+        }
+
+        .content p {
+            margin: 0 0 15px;
+            text-align: justify;
+        }
+
+        .content strong {
+            color: #252525;
+        }
+
+        /* =========================================================
+           Research interests
+           ========================================================= */
+
+        .research-keywords {
+            margin-top: 18px;
+        }
+
+        .keyword {
+            display: inline-block;
+            margin: 3px 5px 3px 0;
+            padding: 3px 9px;
+
+            background: var(--light-bg);
+            border: 1px solid #e1e4e8;
+            border-radius: 4px;
+
+            color: #555555;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           News
+           ========================================================= */
+
+        .news-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .news-list li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            line-height: 1.62;
+        }
+
+        .news-list li::before {
+            position: absolute;
+            left: 3px;
+            top: 0;
+            content: "•";
+            color: #555555;
+            font-weight: 700;
+        }
+
+        .news-date {
+            margin-right: 4px;
+            color: #444444;
+            font-weight: 650;
+        }
+
+        /* =========================================================
+           Publications
+           ========================================================= */
+
+        .publication-summary {
+            margin-bottom: 24px !important;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .year-title {
+            margin: 29px 0 14px;
+            color: #333333;
+            font-size: 21px;
+            font-weight: 650;
+        }
+
+        .publication-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .publication-item {
+            position: relative;
+            margin-bottom: 19px;
+            padding-left: 20px;
+            line-height: 1.62;
+        }
+
+        .publication-item::before {
+            position: absolute;
+            left: 3px;
+            top: 0;
+            content: "•";
+            color: #555555;
+        }
+
+        .venue {
+            display: inline-block;
+            margin-right: 5px;
+            padding: 1px 7px;
+            vertical-align: 1px;
+
+            background: var(--tag-bg);
+            border-radius: 3px;
+            color: #ffffff;
+
+            font-family:
+                SFMono-Regular,
+                Consolas,
+                "Liberation Mono",
+                Menlo,
+                monospace;
+
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .paper-title {
+            color: #242424;
+            font-weight: 600;
+        }
+
+        .paper-authors {
+            color: #444444;
+        }
+
+        .me {
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .paper-venue {
+            color: #555555;
+        }
+
+        .paper-links {
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+
+        .paper-links a {
+            font-size: 13px;
+            font-weight: 550;
+        }
+
+        /* =========================================================
+           Education
+           ========================================================= */
+
+        .education-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 20px;
+        }
+
+        .education-item::before {
+            position: absolute;
+            left: 3px;
+            top: 0;
+            content: "•";
+            color: #555555;
+        }
+
+        .education-date {
+            color: #333333;
+            font-weight: 650;
+        }
+
+        .education-degree {
+            color: #292929;
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           Footer
+           ========================================================= */
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
+
+            color: #888888;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* =========================================================
+           Responsive
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .page {
+                grid-template-columns: 1fr;
+                padding: 38px 22px 56px;
+            }
+
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: 145px 1fr;
+                column-gap: 25px;
+                align-items: center;
+
+                margin-bottom: 36px;
+                padding-bottom: 34px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .avatar {
+                width: 140px;
+                height: 140px;
+                margin: 0;
+                font-size: 43px;
+            }
+        }
+
+        @media (max-width: 680px) {
+
+            .topbar {
+                position: relative;
+            }
+
+            .topbar-inner {
+                display: block;
+                padding: 13px 18px 14px;
+            }
+
+            .site-name {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 7px 16px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .page {
+                padding-top: 28px;
+            }
+
+            .sidebar {
+                display: block;
+                text-align: center;
+            }
+
+            .avatar {
+                margin: 0 auto 20px;
+            }
+
+            .profile-list {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .content p {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Wenchuan Zhang",
+        "url": "https://wenchuanzhang.github.io/",
+        "email": "mailto:t330201704@mail.uic.edu.cn",
+        "jobTitle": "Ph.D. Student",
+        "affiliation": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Beijing Normal-Hong Kong Baptist University"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Hong Kong Baptist University"
+            }
+        ],
+        "sameAs": [
+            "https://scholar.google.com/citations?user=8A8rOWQAAAAJ",
+            "https://orcid.org/0000-0002-0805-0745",
+            "https://github.com/zxj8806"
+        ]
+    }
+    </script>
 </head>
 
-<body>
-    <h1>Wenchuan Zhang</h1>
-    <p>Welcome to my academic homepage.</p>
+
+<body id="home">
+
+    <!-- =========================================================
+         Navigation
+         ========================================================= -->
+
+    <header class="topbar">
+
+        <div class="topbar-inner">
+
+            <a class="site-name" href="#home">
+                Wenchuan Zhang
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#home">Homepage</a>
+                <a href="#about">About Me</a>
+                <a href="#news">News</a>
+                <a href="#publications">Publications</a>
+                <a href="#education">Education</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         Main page
+         ========================================================= -->
+
+    <main class="page">
+
+
+        <!-- =====================================================
+             Sidebar
+             ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="avatar"
+                 aria-label="Wenchuan Zhang">
+                WZ
+            </div>
+
+            <div class="profile-details">
+
+                <h1 class="profile-name">
+                    Wenchuan Zhang
+                </h1>
+
+                <p class="profile-role">
+                    Ph.D. Student
+                </p>
+
+                <p class="profile-affiliation">
+                    Department of Computer Science<br>
+                    Beijing Normal-Hong Kong Baptist University<br>
+                    &amp; Hong Kong Baptist University
+                </p>
+
+                <ul class="profile-list">
+
+                    <li>
+                        <span class="profile-icon">📍</span>
+                        Zhuhai, China
+                    </li>
+
+                    <li>
+                        <span class="profile-icon">✉</span>
+                        <a href="mailto:t330201704@mail.uic.edu.cn">
+                            Email
+                        </a>
+                    </li>
+
+                    <li>
+                        <span class="profile-icon">🎓</span>
+                        <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=8A8rOWQAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Google Scholar
+                        </a>
+                    </li>
+
+                    <li>
+                        <span class="profile-icon">◉</span>
+                        <a href="https://orcid.org/0000-0002-0805-0745"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ORCID
+                        </a>
+                    </li>
+
+                    <li>
+                        <span class="profile-icon">⌘</span>
+                        <a href="https://github.com/zxj8806"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             Content
+             ===================================================== -->
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 About Me
+                 ================================================= -->
+
+            <section id="about" class="section">
+
+                <h2 class="section-title">
+                    About Me
+                </h2>
+
+                <p>
+                    I am currently pursuing a joint Ph.D. degree in
+                    Computer Science at Beijing Normal-Hong Kong Baptist
+                    University (BNBU), Zhuhai, China, and Hong Kong Baptist
+                    University (HKBU), Hong Kong. My Ph.D. advisor is
+                    <strong>Dr. Wentao Fan</strong>.
+                </p>
+
+                <p>
+                    My research interests include
+                    <strong>machine learning</strong>,
+                    <strong>deep learning</strong>,
+                    <strong>graph neural networks</strong>,
+                    <strong>graph representation learning</strong>,
+                    <strong>geometric deep learning</strong>, and
+                    <strong>generative modeling</strong>.
+                    My recent research focuses on geometric representation
+                    learning, graph structure learning, link prediction,
+                    graph clustering, hyperspherical learning, diffusion
+                    models, and spiking generative models.
+                </p>
+
+                <div class="research-keywords">
+                    <span class="keyword">Machine Learning</span>
+                    <span class="keyword">Deep Learning</span>
+                    <span class="keyword">Graph Neural Networks</span>
+                    <span class="keyword">Graph Representation Learning</span>
+                    <span class="keyword">Geometric Deep Learning</span>
+                    <span class="keyword">Generative Modeling</span>
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 News
+                 ================================================= -->
+
+            <section id="news" class="section">
+
+                <h2 class="section-title">
+                    🔥 News
+                </h2>
+
+                <ul class="news-list">
+
+                    <li>
+                        <span class="news-date">2026.08:</span>
+                        🎉 Our paper
+                        <em>
+                            Adaptive Geometric Representation Learning Through
+                            Mixed-Curvature Mixture-of-Experts Diffusion for
+                            Link Prediction
+                        </em>
+                        appears in
+                        <strong>
+                            IEEE Transactions on Artificial Intelligence
+                        </strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.08:</span>
+                        🎉 Our paper
+                        <em>
+                            Dual Generative Adversarial Graph Networks:
+                            Unsupervised and Semi-Supervised Learning with
+                            Spherical Graph Embeddings
+                        </em>
+                        appears in
+                        <strong>Neural Networks</strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.03:</span>
+                        🎉 Our paper
+                        <em>
+                            Deep Graph Neural Network with Progressive Graph
+                            Structure Denoising
+                        </em>
+                        appears in
+                        <strong>Neural Computing and Applications</strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.03:</span>
+                        🎉 Our paper
+                        <em>
+                            Bayesian Hyperspherical Graph Mixture-of-Experts
+                            Deciphers Cell-Cell Interaction in Spatial
+                            Transcriptomics
+                        </em>
+                        appears in
+                        <strong>
+                            IEEE Transactions on Computational Biology
+                            and Bioinformatics
+                        </strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.03:</span>
+                        🎉 Our paper
+                        <em>
+                            Clustering-Based Brain Functional Segmentation
+                            via Deep Collapsed Nonparametric von Mises-Fisher
+                            Mixture Models
+                        </em>
+                        appears in
+                        <strong>Expert Systems with Applications</strong>.
+                    </li>
+
+                    <li>
+                        <span class="news-date">2026.02:</span>
+                        🎉 Our paper
+                        <em>
+                            HKANLP: Link Prediction With Hyperspherical
+                            Embeddings and Kolmogorov-Arnold Networks
+                        </em>
+                        appears in
+                        <strong>
+                            IEEE Transactions on Neural Networks
+                            and Learning Systems
+                        </strong>.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 Publications
+                 ================================================= -->
+
+            <section id="publications" class="section">
+
+                <h2 class="section-title">
+                    📝 Publications
+                </h2>
+
+                <p class="publication-summary">
+                    13 publications are listed below in reverse chronological
+                    order. Please also visit
+                    <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=8A8rOWQAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Google Scholar
+                    </a>
+                    and
+                    <a href="https://orcid.org/0000-0002-0805-0745"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ORCID
+                    </a>.
+                </p>
+
+
+                <!-- =================================================
+                     2026
+                     ================================================= -->
+
+                <h3 class="year-title">
+                    2026
+                </h3>
+
+                <ul class="publication-list">
+
+
+                    <!-- 1 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">IEEE TAI</span>
+
+                        <span class="paper-title">
+                            Adaptive Geometric Representation Learning
+                            Through Mixed-Curvature Mixture-of-Experts
+                            Diffusion for Link Prediction.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Wentao Fan,
+                            Nizar Bouguila.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                IEEE Transactions on Artificial Intelligence
+                            </em>,
+                            vol. 7,
+                            pp. 4553–4566,
+                            2026.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1109/TAI.2026.3665660"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 2 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">Neural Networks</span>
+
+                        <span class="paper-title">
+                            Dual Generative Adversarial Graph Networks:
+                            Unsupervised and Semi-Supervised Learning
+                            with Spherical Graph Embeddings.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Wentao Fan,
+                            Yewang Chen.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>Neural Networks</em>,
+                            vol. 200,
+                            Art. no. 108801,
+                            2026.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1016/j.neunet.2026.108801"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 3 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">NCA</span>
+
+                        <span class="paper-title">
+                            Deep Graph Neural Network with Progressive
+                            Graph Structure Denoising.
+                        </span>
+
+                        <span class="paper-authors">
+                            Weihua Ou,
+                            <span class="me">Wenchuan Zhang</span>,
+                            Lei Zhang,
+                            Hongbing Wang.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>Neural Computing and Applications</em>,
+                            vol. 38,
+                            no. 6,
+                            Art. no. 152,
+                            2026.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1007/s00521-025-11768-4"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 4 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">IEEE TCBB</span>
+
+                        <span class="paper-title">
+                            Bayesian Hyperspherical Graph Mixture-of-Experts
+                            Deciphers Cell-Cell Interaction in Spatial
+                            Transcriptomics.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Yujian Lee,
+                            Ricky Yuen-Tan Hou,
+                            Weifeng Su,
+                            Hong Yan,
+                            Wentao Fan.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                IEEE Transactions on Computational Biology
+                                and Bioinformatics
+                            </em>,
+                            vol. 23,
+                            no. 2,
+                            pp. 817–830,
+                            2026.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1109/TCBBIO.2026.3660060"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 5 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">ESWA</span>
+
+                        <span class="paper-title">
+                            Clustering-Based Brain Functional Segmentation
+                            via Deep Collapsed Nonparametric von Mises-Fisher
+                            Mixture Models.
+                        </span>
+
+                        <span class="paper-authors">
+                            Wentao Fan,
+                            <span class="me">Wenchuan Zhang</span>,
+                            Xiao Dong,
+                            Nizar Bouguila.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>Expert Systems with Applications</em>,
+                            vol. 298,
+                            Art. no. 129739,
+                            2026.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1016/j.eswa.2025.129739"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 6 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">IEEE TNNLS</span>
+
+                        <span class="paper-title">
+                            HKANLP: Link Prediction With Hyperspherical
+                            Embeddings and Kolmogorov-Arnold Networks.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Wentao Fan,
+                            Weifeng Su,
+                            Nizar Bouguila.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                IEEE Transactions on Neural Networks
+                                and Learning Systems
+                            </em>,
+                            vol. 37,
+                            no. 2,
+                            pp. 966–980,
+                            2026.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1109/TNNLS.2025.3614341"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- =================================================
+                     2025
+                     ================================================= -->
+
+                <h3 class="year-title">
+                    2025
+                </h3>
+
+                <ul class="publication-list">
+
+
+                    <!-- 7 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">ICME 2025</span>
+
+                        <span class="paper-title">
+                            Robust Generalized Zero-Shot Learning via
+                            Dual-Stream Variational Autoencoders and
+                            Out-of-Distribution Detection.
+                        </span>
+
+                        <span class="paper-authors">
+                            Xue Han,
+                            Zhixiang Li,
+                            <span class="me">Wenchuan Zhang</span>,
+                            Hanyuan Huang,
+                            Wentao Fan.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                IEEE International Conference on Multimedia
+                                and Expo (ICME)
+                            </em>,
+                            pp. 1–6,
+                            2025.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1109/ICME59968.2025.11208941"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 8 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">ICASSP 2025</span>
+
+                        <span class="paper-title">
+                            Spiking Generative Models Based on Variational
+                            Autoencoder and Adversarial Training.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Jie Zhang,
+                            Ricky Yuen-Tan Hou,
+                            Weifeng Su,
+                            Wentao Fan.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                IEEE International Conference on Acoustics,
+                                Speech and Signal Processing (ICASSP)
+                            </em>,
+                            pp. 1–5,
+                            2025.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1109/ICASSP49660.2025.10890460"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            |
+                            <a href="https://github.com/zxj8806/SGM-VaGAN"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Code
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 9 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">ICAIE 2024</span>
+
+                        <span class="paper-title">
+                            Generative AI in Education: Developing
+                            Personalized Learning Experiences with
+                            Hyperspherical Variational Self-Attention
+                            Autoencoder.
+                        </span>
+
+                        <span class="paper-authors">
+                            Xue Han,
+                            Zhixiang Li,
+                            <span class="me">Wenchuan Zhang</span>,
+                            Wentao Fan.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                Proceedings of the 2024 3rd International
+                                Conference on Artificial Intelligence
+                                and Education (ICAIE)
+                            </em>,
+                            pp. 670–674.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1145/3722237.3722354"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- =================================================
+                     2023
+                     ================================================= -->
+
+                <h3 class="year-title">
+                    2023
+                </h3>
+
+                <ul class="publication-list">
+
+
+                    <!-- 10 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">Mathematics</span>
+
+                        <span class="paper-title">
+                            Robust Graph Structure Learning with
+                            Virtual Nodes Construction.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Weihua Ou,
+                            Weian Li,
+                            Jianping Gou,
+                            Wenjun Xiao,
+                            Bin Liu.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>Mathematics</em>,
+                            vol. 11,
+                            no. 6,
+                            Art. no. 1397,
+                            2023.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.3390/math11061397"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- =================================================
+                     2021
+                     ================================================= -->
+
+                <h3 class="year-title">
+                    2021
+                </h3>
+
+                <ul class="publication-list">
+
+
+                    <!-- 11 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">WCMC</span>
+
+                        <span class="paper-title">
+                            Designing Compact Convolutional Filters for
+                            Lightweight Human Pose Estimation.
+                        </span>
+
+                        <span class="paper-authors">
+                            Shili Niu,
+                            Weihua Ou,
+                            Shihua Feng,
+                            Jianping Gou,
+                            Fei Long,
+                            <span class="me">Wenchuan Zhang</span>,
+                            Wu Zeng.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                Wireless Communications and Mobile Computing
+                            </em>,
+                            vol. 2021,
+                            Art. no. 1333250,
+                            2021.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1155/2021/1333250"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+
+                    <!-- 12 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">ICCSS 2021</span>
+
+                        <span class="paper-title">
+                            Iteration Graph Network.
+                        </span>
+
+                        <span class="paper-authors">
+                            <span class="me">Wenchuan Zhang</span>,
+                            Weihua Ou,
+                            Shili Niu,
+                            Ruxin Wang,
+                            Ziqi Zhu,
+                            Shen Ke.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                2021 8th International Conference on
+                                Information, Cybernetics, and Computational
+                                Social Systems (ICCSS)
+                            </em>,
+                            2021.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://ieeexplore.ieee.org/document/9721961/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                IEEE
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- =================================================
+                     2009
+                     ================================================= -->
+
+                <h3 class="year-title">
+                    2009
+                </h3>
+
+                <ul class="publication-list">
+
+
+                    <!-- 13 -->
+
+                    <li class="publication-item">
+
+                        <span class="venue">IITA 2009</span>
+
+                        <span class="paper-title">
+                            Template Matching Based on an Improved
+                            PSO Algorithm.
+                        </span>
+
+                        <span class="paper-authors">
+                            Xiaoxiang Liu,
+                            <span class="me">Wenchuan Zhang</span>,
+                            Weigang Jiang,
+                            Jianwen Xie.
+                        </span>
+
+                        <span class="paper-venue">
+                            <em>
+                                2009 Third International Symposium on
+                                Intelligent Information Technology Application
+                            </em>,
+                            pp. 292–296,
+                            2009.
+                        </span>
+
+                        <span class="paper-links">
+                            [
+                            <a href="https://doi.org/10.1109/IITAW.2009.74"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                DOI
+                            </a>
+                            ]
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 Education
+                 ================================================= -->
+
+            <section id="education" class="section">
+
+                <h2 class="section-title">
+                    📖 Education
+                </h2>
+
+                <ul class="education-list">
+
+                    <li class="education-item">
+
+                        <span class="education-date">
+                            2023 – Present
+                        </span>
+                        <br>
+
+                        <span class="education-degree">
+                            Joint Ph.D. Student in Computer Science
+                        </span>
+                        <br>
+
+                        Beijing Normal-Hong Kong Baptist University,
+                        Zhuhai, China,
+                        and Hong Kong Baptist University,
+                        Hong Kong.
+                        <br>
+
+                        Advisor:
+                        <strong>Dr. Wentao Fan</strong>.
+
+                    </li>
+
+
+                    <li class="education-item">
+
+                        <span class="education-date">
+                            2023
+                        </span>
+                        <br>
+
+                        <span class="education-degree">
+                            Master of Engineering
+                        </span>
+                        <br>
+
+                        School of Big Data and Computer Science,
+                        Guizhou Normal University,
+                        Guiyang, China.
+
+                    </li>
+
+
+                    <li class="education-item">
+
+                        <span class="education-date">
+                            2010
+                        </span>
+                        <br>
+
+                        <span class="education-degree">
+                            B.E. in Electrical Engineering and Automation
+                        </span>
+                        <br>
+
+                        Jinan University,
+                        Guangzhou, China.
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 Footer
+                 ================================================= -->
+
+            <footer class="footer">
+
+                © <span id="current-year">2026</span>
+                Wenchuan Zhang.
+                Hosted on GitHub Pages.
+
+            </footer>
+
+        </div>
+
+    </main>
+
+
+    <script>
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
+
 </body>
+
 </html>
